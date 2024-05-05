@@ -1,0 +1,197 @@
+
+Core and Java EE Design Patterns:
+********************************
+
+Best Practices ---- > Problems ------> Solutions
+
+Pattern:
+*******
+- Helps to identify a problem and provides a ready to use solution.
+- Promote reuse without having to reinvent the wheel
+- Define the system structure better
+- Captures design experience
+- Provides Common Design Language (Between developers)
+
+
+Pattern Catalog: 
+    
+    - GOF Pattern Catalog (Core Patterns)
+        - Creational: object creation
+        - Structural: relationships between classes
+        - Behavioral: define how to communicate 
+
+    - JEE Pattern Catalog
+        
+        - Presentation Layer
+            - Intercepting Filter
+            - Front Controller
+            - MVC
+            - Context Object
+        
+        - Business Layer
+            - Business Delegate
+            - Transfer Object
+            - Session Facade: wrap a lot of data instead of make multiple calls
+            - Service Locator
+        
+        - Data Access Layer
+            - Data Access Object (DAO)    
+
+        - Integration Layer (Communicating with other applications)
+            - Service Activator
+            - Web Service Broker
+
+
+* Creational
+    - Singleton
+    - Factory
+    - Abstract Factory
+    - Builder
+    - Prototype
+    
+
+* Structural
+    - Adapter
+    - Bridge
+    - Fly Weight
+    - Decorator
+    - Proxy
+
+* Behavioral
+    - Command
+    - Interpreter
+    - Template Method
+    - Observer
+    - Visitor
+    - Mediator
+    - Memento
+
+
+Dependency Injection
+Inversion of Control
+
+
+Java EE Layers
+    - Presentation Layer: Front Controller , Model View Controller
+    - Business/Services Layer: Business Delegate / Service Class , Business Object
+    - Data Access Layer: Data Access Object
+
+
+Create Movie Ticket
+
+
+
+########################################################################
+                            SINGLETON
+########################################################################
+
+Examples of Property Reader, Logger and Datasource.
+
+A singleton pattern is an object creational pattern that allows our application to create one and only one instance of a particular class, no matter how many times that class is used in our application.
+
+For example a PropertyReader class that can read the properties from a file and it is used multiple times in our application by different classes. We will create only one object of the PropertyReader and not multiple saving a lot of memory using the singleton pattern. So all application classes will use the same property reader object to perform the property reading from a file.​
+
+Another good example for singleton is a logger. Using logger's we can log different types of information errors debugging information and just general information from our application to a log file so that developers can read that log file later on to see what is happening with our application. So a logger can be a singleton the same logger object can be shared across our application classes.
+
+Another good example in the JDBC world, the java database connectivity world is the data source class in the JDBC API the data source class is responsible for maintaining a connection pool and giving a connection from the pool to our application classes. We can have different classes in the application that need a database connection but there will be only one instance of the data source. So a DataSource is also an example of singleton.
+
+
+Steps: 
+    - Declare the constructor of the class as private.
+    - Declare a static method that will return an instance of the class
+    - Declare a static member of the same class type in the class
+
+* Create DateUtil class and the test
+
+If you are sure that the class will be used at least once in the application, we can use the "EAGER initialization"
+
+* Make sure that is only one instance of our singleton class when multiple threads want to access to that instance
+    → we need to use "synchronized" to make sure that the method is access only by one thread at a time.
+    → also we can use "synchronized" inside the method to mark a block of code with this. In that case we don't need to use
+      the word in the declaration of the method.
+    → Is better to use the code block with "synchronized" because if we use in the method this is a very expensive process
+    → use double check of instance == null
+* Use "volatile" to avoid issues in the multi threading environment
+
+* Serialization -> to make possible to return as string the objects of the class
+When the instances deserialize they are not equals anymore. To solve this
+
+    → create the readResolve method, it will be read automatically by the OutputStream objects.
+    We make this as protected.
+
+* Override the clone method
+    → this is important because if another class try to implement our DateUtil class we need to restrict
+    the clone of the singleton instance.
+
+* Reflection problem
+    → in the class ReflectionProblem we se that it is possible to break the singleton pattern with the use of
+    Reflection API. We access to the constructor and create a new instance.
+    → The Enum Solution. Enum is another way to work in these scenarios.
+
+########################################################################
+
+
+
+
+
+
+
+
+
+
+########################################################################
+
+
+
+
+
+
+
+
+
+
+########################################################################
+
+
+
+
+
+
+
+
+
+
+########################################################################
+
+
+
+
+
+
+
+
+
+
+########################################################################
+
+
+
+
+
+
+
+
+
+
+########################################################################
+
+
+
+
+
+
+
+
+
+
+########################################################################
