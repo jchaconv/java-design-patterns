@@ -128,26 +128,40 @@ When the instances deserialize they are not equals anymore. To solve this
     Reflection API. We access to the constructor and create a new instance.
     → The Enum Solution. Enum is another way to work in these scenarios.
 
-########################################################################
-
-
-
-
-
-
-
-
 
 
 ########################################################################
+                            FACTORY
+########################################################################
+
+This pattern abstracts or hide the object creation process.
+
+We need an interface and a Factory class to return the instance of an object
 
 
+PizzaStore -------> PizzaFactory
+
+        |---- VegPizza
+        |
+Pizza (I) -------- CheesePizza
+        |
+        |_____ MeatPizza
 
 
+Assignment of Person example.
 
 
+########################################################################
+                            ABSTRACT - FACTORY
+########################################################################
 
+Is a factory of factories. Hides the creation of the factory.
 
+Examples:
+- JAXP: DocumentBuilderFactory → DocumentBuilder → Document
+- DAO:
+
+DaoFactoryProducer → DaoAbstractFactory → (XMLDaoFactory, DBDaoFactory)  →  (XMLEmpDao, XMLDeptDao), (DBEmpDao, DBDeptDao)
 
 
 ########################################################################
