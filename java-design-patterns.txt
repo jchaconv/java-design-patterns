@@ -165,35 +165,83 @@ DaoFactoryProducer → DaoAbstractFactory → (XMLDaoFactory, DBDaoFactory)  →
 
 
 ########################################################################
+                            TEMPLATE METHOD
+########################################################################
+
+Consists in provide a general o template method in a parent class that should be used by child classes
+
+                            |------- XMLDataRendered
+                            |               readData()
+DataRendered ---------------|               processData()
+   render()                 |
+   readData()               |
+   processData()            |________ CSVDataRendered
+                                             readData()
+                                             processData()
 
 
 
+Assignment:
 
 
-
-
+                                  |-- DesktopManufacturer
+ComputerManufacturer --------------
+    buildComputer() *             |_- LaptopManufacturer
+    addHardDisk()
+    addRAM()
+    addKeyboard()
 
 
 
 ########################################################################
+                                ADAPTER
+########################################################################
 
+When we need to communicate two different classes with different type of data
+like zipcode(int) and city(string)
 
+Assignment : Payment processor use case
 
-
-
-
-
-
+The PaymentApp receive the amount in soles and the PaymentProcessorImpl prints the message
+of the payment processed ${amount} in dollars.
 
 
 ########################################################################
+                                FLYWEIGHT
+########################################################################
+
+Consists in reuse objects to save memory
+
+Steps to use Flyweight pattern:
+    - Separate the Extrinsic State(specific properties of the class)
+    - Pass them as parameters
+    - Create a factory class
 
 
+Example of Paint App (Description of the problem)
+
+Shape               (this is an interface with one method)
+    draw()
+
+   Circle
+   - it's own fields
+    draw()
+
+   Rectangle
+   - it's own fields
+    draw()
 
 
+PaintApp
+- Here I have the creation of Circles and rectangles. The objects are created every single time
+in the loop and this consumes lots of memory. This can be improved with the flyweight pattern.
 
 
-
+* First convert the interface to an abstract class and create two methods with the "extrinsic state" of the objects
+* Override the appropriate method for circle and rectangle (pass the parameters)
+* Create the ShapeFactory class to cache in a HashMap the correct object
+* Modify the PaintApp class. The output is the same but we have only two objects because they are store in the static HashMap
+  and that's the advantage of the flyweight pattern.
 
 
 
