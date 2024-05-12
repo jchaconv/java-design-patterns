@@ -246,14 +246,43 @@ in the loop and this consumes lots of memory. This can be improved with the flyw
 
 
 ########################################################################
+                                 COMMAND
+########################################################################
+
+* Is a behavioral design pattern and consists in encapsulated a request
+and pass to an invoker. The invoker pass the command to the receiver.
+
+Invoker: send the command
+Receiver: Knows how to perform the actions  (Television)
+
+  CLIENT
+    |
+    ˅
+  INVOKER      →     COMMAND      →    RECEIVER
+
+                        ↑
+
+                CONCRETE COMMAND
 
 
+Example:
+-------
 
 
+Person      →          RemoteControl
+                                pressButton()
 
+                            ↑
+                          Command
+                                execute()
 
+                         ↑               ↑
 
-
+                        OnCommand
+Television      <---        execute()
+     on()
+     off()                              OffCommand
+                          <------           execute()
 
 
 ########################################################################
