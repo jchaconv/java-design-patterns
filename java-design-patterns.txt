@@ -286,3 +286,54 @@ Television      <---        execute()
 
 
 ########################################################################
+                                 DECORATOR
+########################################################################
+
+* adds additional functionality to an object dynamically at runtime
+* wraps an object with additional behaviour without affecting other objects of the same type
+
+Example:
+                        |---- VeggiePizzaDecorator
+                        |         Pizza pizza;
+                        |
+Pizza (Component) -------                  PizzaDecorator (Decorator)
+                        |
+                        |
+                        |---- CheesePizzaDecorator
+                                    Pizza pizza;
+
+
+PlainPizza (ConcreteComponent or BaseComponent)
+
+
+
+########################################################################
+                                 DI and IoC
+########################################################################
+
+Dependency injection is achieved through Inversion of Control. Because IoC is the process of
+asking an external container for the implementation of the code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
