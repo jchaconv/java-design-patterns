@@ -345,6 +345,17 @@ Deep Clone: Consists in specify the creation of a new instance inside our class.
 * Be careful with circular hierarchy
 
 
+########################################################################
+                                 Builder
+########################################################################
+
+To make the code readable
+To initialize certain fields of an object
+
+I think Lombok has the same functionality.
+
+
+
 
 
 
