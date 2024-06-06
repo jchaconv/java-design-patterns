@@ -316,22 +316,33 @@ asking an external container for the implementation of the code.
 
 
 
+########################################################################
+                         Presentation Tier Patterns
+########################################################################
+
+
+* Intercepting Filter: Sometimes we need a special processing of the request before it reaches the target.
+                       The intercept filter process the request. For example: Bad browser filter (only accept requests from Chrome)
+    - Uncompress, authenticate, audit, decode/decrypt.
 
 
 
 
 
 
+########################################################################
+                                 Prototype
+########################################################################
 
+Use an existing object to create more objects with the same information or state.
 
+It's necessary to implements the interface Cloneable to make possible the instances of Game class to be clone.
 
+Deep Clone: Consists in specify the creation of a new instance inside our class. Ex: new Membership inside Game.
+    - Copy constructor: A technique inside the concept of deep clone that consists in create a constructor with a new reference of
+      the other object
 
-
-
-
-
-
-
+* Be careful with circular hierarchy
 
 
 
